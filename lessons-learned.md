@@ -29,3 +29,17 @@ control account creation.
 **Lesson:** Always uncheck unattended installation when creating Windows VMs
 in VirtualBox. Manual install takes 15 minutes and avoids hours of admin
 access troubleshooting.
+
+## 2026-04-29 — Lab Setup Day 2
+
+### Sysmon Install Requires Admin PowerShell
+**Problem:** Sysmon install failed with "You need to launch Sysmon as Administrator."
+**Root cause:** PowerShell was open but not elevated.
+**Fix:** Right-click Start > Terminal (Admin) before running Sysmon installer.
+**Lesson:** Always verify the title bar says "Administrator:" before running any security tooling installs on Windows.
+
+### Nested Zip Extraction Creates Double Folder
+**Problem:** sysmon-config-master.zip extracted to sysmon-config-master\sysmon-config-master\
+causing the XML path to be wrong.
+**Fix:** Used ls to find the actual path before running the install command.
+**Lesson:** Always verify extracted folder structure before referencing paths in commands.
